@@ -1,7 +1,11 @@
 <p>Student name: </p>
-{{input type="text" value=model.name}}
-<button {{action 'saveStudent' model on="click"}}>Wa</button>
+{{input type="text" value=model.newStudent.name}}
 
+<p>Selecciona una escuela: </p>
 {{#each model.schools as |school|}}
-
+	<p><a {{action 'setSchool' school on="click"}}>{{school.name}}</a></p>
 {{/each}}
+
+{{#if model.newStudent.canSaveStudent}}
+		<button {{action 'saveStudent' model.newStudent on="click"}}>Save</button>
+{{/if}}

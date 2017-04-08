@@ -15,6 +15,9 @@ export default Ember.Route.extend({
 	actions: {
 		saveStudent(student) {
 			student.save();
+		},
+		setSchool(school) {
+			this.set('controller.model.newStudent.school', school);
 		}
 	}
 });
